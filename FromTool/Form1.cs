@@ -94,7 +94,7 @@ namespace FromTool
         public WindowsFinder finder = new WindowsFinder();
         public int cthhdl = 0;
         public bool ismousedown = false;
-        
+        public Color RectColor = Color.Blue;
 
         public int findinfo(string text)
         {
@@ -156,7 +156,6 @@ namespace FromTool
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             listBox4.SelectedIndex = listBox2.SelectedIndex = listBox3.SelectedIndex = listBox5.SelectedIndex = listBox1.SelectedIndex;
             textBox3.Text=listBox1.SelectedIndex.ToString();
             textBox5.Text = listBox3.SelectedItem.ToString();
@@ -170,7 +169,7 @@ namespace FromTool
             textBox11.Text = info[listBox1.SelectedIndex].szWindowName;
             IntPtr ptr = GetDC(IntPtr.Zero);
             Graphics graphics = Graphics.FromHdc(ptr);
-            graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
+            graphics.DrawRectangle(new Pen(RectColor), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
             ReleaseDC(IntPtr.Zero, ptr); 
             graphics.Dispose();
             Icon icon = Icon.ExtractAssociatedIcon(textBox10.Text);
@@ -194,7 +193,7 @@ namespace FromTool
             textBox11.Text = info[listBox1.SelectedIndex].szWindowName;
             IntPtr ptr = GetDC(IntPtr.Zero);
             Graphics graphics = Graphics.FromHdc(ptr);
-            graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
+            graphics.DrawRectangle(new Pen(RectColor), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
             ReleaseDC(IntPtr.Zero, ptr);
             graphics.Dispose();
             Icon icon = Icon.ExtractAssociatedIcon(textBox10.Text);
@@ -380,7 +379,7 @@ namespace FromTool
             textBox11.Text = info[listBox1.SelectedIndex].szWindowName;
             IntPtr ptr = GetDC(IntPtr.Zero);
             Graphics graphics = Graphics.FromHdc(ptr);
-            graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
+            graphics.DrawRectangle(new Pen(RectColor), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
             ReleaseDC(IntPtr.Zero, ptr);
             graphics.Dispose();
             Icon icon = Icon.ExtractAssociatedIcon(textBox10.Text);
@@ -405,7 +404,7 @@ namespace FromTool
             textBox11.Text = info[listBox1.SelectedIndex].szWindowName;
             IntPtr ptr = GetDC(IntPtr.Zero);
             Graphics graphics = Graphics.FromHdc(ptr);
-            graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
+            graphics.DrawRectangle(new Pen(RectColor), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
             ReleaseDC(IntPtr.Zero, ptr);
             graphics.Dispose();
             Icon icon = Icon.ExtractAssociatedIcon(textBox10.Text);
@@ -430,7 +429,7 @@ namespace FromTool
             textBox11.Text = info[listBox1.SelectedIndex].szWindowName;
             IntPtr ptr = GetDC(IntPtr.Zero);
             Graphics graphics = Graphics.FromHdc(ptr);
-            graphics.DrawRectangle(new Pen(Color.Blue), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
+            graphics.DrawRectangle(new Pen(RectColor), new Rectangle(info[listBox1.SelectedIndex].rect.Left, info[listBox1.SelectedIndex].rect.Top, info[listBox1.SelectedIndex].w, info[listBox1.SelectedIndex].h));
             ReleaseDC(IntPtr.Zero, ptr);
             graphics.Dispose();
             Icon icon = Icon.ExtractAssociatedIcon(textBox10.Text);
@@ -575,6 +574,14 @@ namespace FromTool
                 listBox1.SelectedIndex = 0;
                 ismousedown = false;
                 Cursor = Cursors.Default;
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                RectColor=colorDialog1.Color;
             }
         }
     }

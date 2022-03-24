@@ -88,6 +88,8 @@
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button13 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -177,6 +179,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
@@ -635,6 +638,16 @@
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(635, 80);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(104, 23);
+            this.button13.TabIndex = 36;
+            this.button13.Text = "更改标记线颜色";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -725,5 +738,7 @@
         private Button button11;
         private Button button12;
         private System.Windows.Forms.Timer timer1;
+        private Button button13;
+        private ColorDialog colorDialog1;
     }
 }
